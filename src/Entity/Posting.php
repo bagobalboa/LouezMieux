@@ -100,7 +100,7 @@ class Posting
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $photos;
+    private $photo1;
 
     public function getId(): ?int
     {
@@ -299,14 +299,14 @@ class Posting
         return $this;
     }
 
-    public function getPhotos(): ?string
+    public function getphoto1(): ?string
     {
-        return $this->photos;
+        return $this->photo1;
     }
 
-    public function setPhotos(string $photos): self
+    public function setphoto1(string $photo1): self
     {
-        $this->photos = $photos;
+        $this->photo1 = $photo1;
 
         return $this;
     }
