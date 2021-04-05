@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Posting;
+use App\Form\PostingType;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +42,7 @@ class PostingController extends AbstractController
         $form->handleRequest($r);
 
         if (!$form->isSubmitted() || !$form->isValid()) {
-            return $this->render('annonce/creer-annonce.html.twig', [
+            return $this->render('posting/creer-annonce.html.twig', [
             'form' => $form->createView(),
         ]);
     } else {
