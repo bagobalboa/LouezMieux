@@ -1,9 +1,17 @@
-footer{
+footer {
     background-color:#525252 ;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
 }
-.element-bas{
-   width: 100px;
-   display: flex;
-   justify-content: center;
+
+.nav-bar{
+    background-color: #525252;
+    
 }
+svg {
+    vertical-align: middle;
+    width: 200px;
+  }
+
+   
