@@ -1,54 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Accueil
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    h1{ margin: 2em auto; max-width: 800px; width: 95%;text-align:center; font: 20px/1.5 Monserrat; }
 
-</style>
 
-   <div class="container">
-         <h1>Annonces les plus récente</h1>
-            <div class="card-group mb-5">
-                <div class="card">
-                    <div class="card-body">
-                       <img src="">
-                    </div>
-                    <div class="card-footer">description</div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                       <img src="">
-                    </div>
-                    <div class="card-footer">description</div>
-                </div>
-                 <div class="card">
-                    <div class="card-body">
-                       <img src="">
-                    </div>
-                    <div class="card-footer">description</div>
-                </div>
-            </div>
-            
-              <div class="card-group mb-5">
-                <div class="card">
-                    <div class="card-body">
-                       <img src="">
-                    </div>
-                    <div class="card-footer">description</div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                       <img src="">
-                    </div>
-                    <div class="card-footer">description</div>
-                </div>
-                 <div class="card">
-                    <div class="card-body">
-                       <img src="">
-                    </div>
-                    <div class="card-footer">description</div>
-                </div>
-            </div>
-{% endblock %}
+	<div class="container">
+		<h1>Annonces les plus récente</h1>
+		<div class="card-group mb-5">
+			<div class="card">
+				<div class="card-body">
+					<img src="">
+				</div>
+				<div class="card-footer">description</div>
+			</div>
+			<div class="card">
+				<div class="card-body">
+					<img src="">
+				</div>
+				<div class="card-footer">description</div>
+			</div>
+			<div class="card">
+				<div class="card-body">
+					<img src="">
+				</div>
+				<div class="card-footer">description</div>
+			</div>
+		</div>
+
+		<div class="card-group mb-5">
+			<div class="card">
+				<div class="card-body">
+					<img src="">
+				</div>
+				<div class="card-footer">description</div>
+			</div>
+			<div class="card">
+				<div class="card-body">
+					<img src="">
+				</div>
+				<div class="card-footer">description</div>
+			</div>
+			<div class="card">
+				<div class="card-body">
+					<img src="">
+				</div>
+				<div class="card-footer">description</div>
+			</div>
+		</div>
+
+		<footer>
+			<p class="copyright">&copy; 2021-LouerMieux
+			</p>
+		</footer>
+	{% endblock %}
