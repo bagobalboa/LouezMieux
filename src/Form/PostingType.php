@@ -19,6 +19,10 @@ class PostingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('titre', TextType::class, [
+                'required' => true,
+                'attr' => ['class' => 'form-titre'],
+            ])
             ->add('adresse', TextType::class, [
                 'required' => true,
                 'attr' => ['class' => 'form-adresse'],
