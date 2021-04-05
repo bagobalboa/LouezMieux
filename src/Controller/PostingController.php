@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Posting;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -20,14 +23,9 @@ class PostingController extends AbstractController
         $posting = $repository->find($id);
 
         if (empty($posting)) throw new NotFoundHttpException();
-
-        $formCommentaire = $this->createForm(CommentaireType::class, new Commentaire());
-
-
-
+        
         return $this->render('posting/index.html.twig', [
-            'posting' => $posting,
-            'form' => $formCommentaire->createView()
+            'posting' => $posting->createView()
         ]);
     }
 
@@ -38,13 +36,13 @@ class PostingController extends AbstractController
     {
         $posting = new Posting();
 
-        $form = this->createForm(PostingType::class, $posting);
+        $form = $this->createForm(PostingType::class, $posting);
 
         $form->handleRequest($r);
 
-        if (!$form->isSubmitted() || !$form->isValid())
+        if (!$form->isSubmitted() || !$form->isValid()) {
             return $this->render('annonce/creer-annonce.html.twig', [
-            'form' => $form->createView,
+            'form' => $form->createView(),
         ]);
     } else {
 
@@ -61,31 +59,27 @@ class PostingController extends AbstractController
         $fileName5 = uniqid() . '.' . $photo5->guessExtension();
 
         try {
-
             $photo1->move($this->getParameter('posting_image_directory'), $fileName1);
             $photo2->move($this->getParameter('posting_image_directory'), $fileName2);
             $photo3->move($this->getParameter('posting_image_directory'), $fileName3);
             $photo4->move($this->getParameter('posting_image_directory'), $fileName4);
             $photo5->move($this->getParameter('posting_image_directory'), $fileName5);
         } catch (FileException $ex) {
-
             $form->addError(new FormError('Une erreur est survenue pendant l\'upload du fichier : ' . $ex->getMessage()));
             throw new Exception('File upload error');
+        }
 
+        $posting->setphoto1($fileName1);
+        $posting->setphoto2($fileName2);
+        $posting->setphoto3($fileName3);
+        $posting->setphoto4($fileName4);
+        $posting->setphoto5($fileName5);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($posting);
+        $em->flush();
+
+        return $this->redirect('/posting/' . $posting->getId());
+        }
     }
-
-    $posting->setphoto1($fileName1);
-    $posting->setphoto2($fileName2);
-    $posting->setphoto3($fileName3);
-    $posting->setphoto4($fileName4);
-    $posting->setphoto5($fileName5);
-
-    $em = $this->getDoctrine()->getManager();
-    $em->persist($posting);
-    $em->flush();
-
-    return $this->redirect('/posting/' . $posting->getId());
-
-
-
 }
