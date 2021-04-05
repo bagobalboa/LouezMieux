@@ -1,4 +1,9 @@
-footer {
+footer{
     background-color:#525252 ;
     font-family: 'Montserrat', sans-serif;
+}
+.element-bas{
+   width: 100px;
+   display: flex;
+   justify-content: center;
 }

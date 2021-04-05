@@ -42,7 +42,7 @@ class PostingController extends AbstractController
         $form->handleRequest($r);
 
         if (!$form->isSubmitted() || !$form->isValid()) {
-            return $this->render('annonce/creer-annonce.html.twig', [
+            return $this->render('posting/creer-annonce.html.twig', [
             'form' => $form->createView(),
         ]);
     } else {

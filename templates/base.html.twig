@@ -17,65 +17,69 @@
 	</head>
 
 	<body>
-		{% block body %}
-			{# <div class="nav-bar">
-			<img src="">
-			<ul class="nav justify-content-end">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="">Accueil</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="">Se connecter</a>
-				</li>
-			</ul>
-			</div> #}
-			<div id="footer">
-				{% block footer %}
-					<p class="copyright">&copy; 2021-LouerMieux</p>
-				{% endblock %}
+		{% block header %}
+			<div class="nav-bar">
+				<img src="">
+				<ul class="nav justify-content-end">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="">Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="">Se connecter</a>
+					</li>
+				</ul>
+			</div>
+		{% endblock %}
+		{% block content %}{% endblock %}
+		{% block footer %}
+			<div class="element-bas">
+			<img src="../logo/logo_final_simple.jpeg">
+			<p>Louez Mieux.</p>
+			<br>
+			<p class="copyright">&copy; 2021-LouerMieux</p>
 			</div>
 		{% endblock %}
 
 
 		{# {% set route = app.request.get('_route') %}
-		
-			<nav class="nav nav-fill">
-				<a class="nav-link {% if route == 'home' %}active{% endif %}" aria-current="page"
-					href="{{ path('home') }}">Accueil</a>
-				<a class="nav-link {% if route == 'cv' %}active{% endif %}" href="{{ path('cv') }}">CV</a>
-				<a class="nav-link {% if route == 'about' %}active{% endif %}" href="{{ path('about') }}">À propos</a>
-		
-				{% if is_granted('ROLE_ADMIN') %}
-				<a class="nav-link {% if route == 'gerer_articles' %}active{% endif %}"
-					href="{{ path('gerer_articles') }}">Gérer les articles</a>
-				<a class="nav-link {% if route == 'utilisateur_index' %}active{% endif %}"
-					href="{{ path('utilisateur_index') }}">Gérer les utilisateurs</a>
-				{% endif %}
-		
-				{% if app.user %}
-				<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
-				{% else %}
-				<a class="nav-link {% if route == 'app_login' %}active{% endif %}" href="{{ path('app_login') }}">Se
-					connecter</a>
-				{% endif %}
-			</nav>
-		
-			<div class="container" id="handle-alerts">
-				{% for error in app.flashes('error') %}
-				<div class="alert alert-danger">{{error}}</div>
-				{% endfor %}
-		
-				{% for info in app.flashes('info') %}
-				<div class="alert alert-info">{{info}}</div>
-				{% endfor %}
-		
-				{% for success in app.flashes('success') %}
-				<div class="alert alert-success">{{success}}</div>
-				{% endfor %}
-			</div>
-		
-		
-		#}
+				
+					<nav class="nav nav-fill">
+						<a class="nav-link {% if route == 'home' %}active{% endif %}" aria-current="page"
+							href="{{ path('home') }}">Accueil</a>
+						<a class="nav-link {% if route == 'cv' %}active{% endif %}" href="{{ path('cv') }}">CV</a>
+						<a class="nav-link {% if route == 'about' %}active{% endif %}" href="{{ path('about') }}">À propos</a>
+				
+						{% if is_granted('ROLE_ADMIN') %}
+						<a class="nav-link {% if route == 'gerer_articles' %}active{% endif %}"
+							href="{{ path('gerer_articles') }}">Gérer les articles</a>
+						<a class="nav-link {% if route == 'utilisateur_index' %}active{% endif %}"
+							href="{{ path('utilisateur_index') }}">Gérer les utilisateurs</a>
+						{% endif %}
+				
+						{% if app.user %}
+						<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+						{% else %}
+						<a class="nav-link {% if route == 'app_login' %}active{% endif %}" href="{{ path('app_login') }}">Se
+							connecter</a>
+						{% endif %}
+					</nav>
+				
+					<div class="container" id="handle-alerts">
+						{% for error in app.flashes('error') %}
+						<div class="alert alert-danger">{{error}}</div>
+						{% endfor %}
+				
+						{% for info in app.flashes('info') %}
+						<div class="alert alert-info">{{info}}</div>
+						{% endfor %}
+				
+						{% for success in app.flashes('success') %}
+						<div class="alert alert-success">{{success}}</div>
+						{% endfor %}
+					</div>
+				
+				
+				#}
 		{% block js %}
 			<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
