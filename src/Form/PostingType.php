@@ -29,7 +29,10 @@ class PostingType extends AbstractType
             ->add('cuisine_equipee')
             ->add('toilette_separee')
             ->add('photo1')
-        ;
+            ->add('photo2')
+            ->add('photo3')
+            ->add('photo4')
+            ->add('photo5');
     }
 
     public function configureOptions(OptionsResolver $resolver)
