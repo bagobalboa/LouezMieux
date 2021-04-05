@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Posting;
+use App\Form\PostingType;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
