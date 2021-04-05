@@ -20,14 +20,9 @@ class PostingController extends AbstractController
         $posting = $repository->find($id);
 
         if (empty($posting)) throw new NotFoundHttpException();
-
-        $formCommentaire = $this->createForm(CommentaireType::class, new Commentaire());
-
-
-
+        
         return $this->render('posting/index.html.twig', [
-            'posting' => $posting,
-            'form' => $formCommentaire->createView()
+            'posting' => $posting->createView()
         ]);
     }
 
@@ -44,7 +39,7 @@ class PostingController extends AbstractController
 
         if (!$form->isSubmitted() || !$form->isValid())
             return $this->render('annonce/creer-annonce.html.twig', [
-            'form' => $form->createView,
+            'form' => $form->createView(),
         ]);
     } else {
 
@@ -61,17 +56,14 @@ class PostingController extends AbstractController
         $fileName5 = uniqid() . '.' . $photo5->guessExtension();
 
         try {
-
             $photo1->move($this->getParameter('posting_image_directory'), $fileName1);
             $photo2->move($this->getParameter('posting_image_directory'), $fileName2);
             $photo3->move($this->getParameter('posting_image_directory'), $fileName3);
             $photo4->move($this->getParameter('posting_image_directory'), $fileName4);
             $photo5->move($this->getParameter('posting_image_directory'), $fileName5);
         } catch (FileException $ex) {
-
             $form->addError(new FormError('Une erreur est survenue pendant l\'upload du fichier : ' . $ex->getMessage()));
             throw new Exception('File upload error');
-
     }
 
     $posting->setphoto1($fileName1);
@@ -85,7 +77,5 @@ class PostingController extends AbstractController
     $em->flush();
 
     return $this->redirect('/posting/' . $posting->getId());
-
-
-
+    
 }
