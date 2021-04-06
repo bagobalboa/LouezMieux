@@ -2,123 +2,169 @@
 
 namespace App\Entity;
 
-use App\Repository\PostingRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PostingRepository::class)
+ * Posting
+ *
+ * @ORM\Table(name="posting")
+ * @ORM\Entity
  */
 class Posting
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=false)
      */
     private $type;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var bool
+     *
+     * @ORM\Column(name="meuble", type="boolean", nullable=false)
      */
     private $meuble;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="nombre_pieces", type="integer", nullable=false)
      */
-    private $nombre_pieces;
+    private $nombrePieces;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="superficie", type="integer", nullable=false)
      */
     private $superficie;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="loyer", type="integer", nullable=false)
      */
     private $loyer;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="caution", type="integer", nullable=false)
      */
     private $caution;
 
     /**
-     * @ORM\Column(type="date")
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_debut", type="date", nullable=false)
      */
-    private $date_debut;
+    private $dateDebut;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @var int|null
+     *
+     * @ORM\Column(name="duree_bail", type="integer", nullable=true)
      */
-    private $duree_bail;
+    private $dureeBail;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var bool
+     *
+     * @ORM\Column(name="cave", type="boolean", nullable=false)
      */
     private $cave;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var bool
+     *
+     * @ORM\Column(name="place_parking", type="boolean", nullable=false)
      */
-    private $place_parking;
+    private $placeParking;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var bool
+     *
+     * @ORM\Column(name="ascenseur", type="boolean", nullable=false)
      */
     private $ascenseur;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var bool
+     *
+     * @ORM\Column(name="gardien", type="boolean", nullable=false)
      */
     private $gardien;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var bool
+     *
+     * @ORM\Column(name="balcon", type="boolean", nullable=false)
      */
     private $balcon;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var bool
+     *
+     * @ORM\Column(name="cuisine_equipee", type="boolean", nullable=false)
      */
-    private $cuisine_equipee;
+    private $cuisineEquipee;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var bool
+     *
+     * @ORM\Column(name="toilette_separee", type="boolean", nullable=false)
      */
-    private $toilette_separee;
+    private $toiletteSeparee;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="photo1", type="string", length=255, nullable=false)
      */
     private $photo1;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="photo2", type="string", length=255, nullable=false)
      */
     private $photo2;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="photo3", type="string", length=255, nullable=false)
      */
     private $photo3;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="photo4", type="string", length=255, nullable=false)
      */
     private $photo4;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="photo5", type="string", length=255, nullable=false)
      */
     private $photo5;
 
@@ -165,12 +211,12 @@ class Posting
 
     public function getNombrePieces(): ?int
     {
-        return $this->nombre_pieces;
+        return $this->nombrePieces;
     }
 
-    public function setNombrePieces(int $nombre_pieces): self
+    public function setNombrePieces(int $nombrePieces): self
     {
-        $this->nombre_pieces = $nombre_pieces;
+        $this->nombrePieces = $nombrePieces;
 
         return $this;
     }
@@ -213,24 +259,24 @@ class Posting
 
     public function getDateDebut(): ?\DateTimeInterface
     {
-        return $this->date_debut;
+        return $this->dateDebut;
     }
 
-    public function setDateDebut(\DateTimeInterface $date_debut): self
+    public function setDateDebut(\DateTimeInterface $dateDebut): self
     {
-        $this->date_debut = $date_debut;
+        $this->dateDebut = $dateDebut;
 
         return $this;
     }
 
     public function getDureeBail(): ?int
     {
-        return $this->duree_bail;
+        return $this->dureeBail;
     }
 
-    public function setDureeBail(?int $duree_bail): self
+    public function setDureeBail(?int $dureeBail): self
     {
-        $this->duree_bail = $duree_bail;
+        $this->dureeBail = $dureeBail;
 
         return $this;
     }
@@ -249,12 +295,12 @@ class Posting
 
     public function getPlaceParking(): ?bool
     {
-        return $this->place_parking;
+        return $this->placeParking;
     }
 
-    public function setPlaceParking(bool $place_parking): self
+    public function setPlaceParking(bool $placeParking): self
     {
-        $this->place_parking = $place_parking;
+        $this->placeParking = $placeParking;
 
         return $this;
     }
@@ -297,34 +343,34 @@ class Posting
 
     public function getCuisineEquipee(): ?bool
     {
-        return $this->cuisine_equipee;
+        return $this->cuisineEquipee;
     }
 
-    public function setCuisineEquipee(bool $cuisine_equipee): self
+    public function setCuisineEquipee(bool $cuisineEquipee): self
     {
-        $this->cuisine_equipee = $cuisine_equipee;
+        $this->cuisineEquipee = $cuisineEquipee;
 
         return $this;
     }
 
     public function getToiletteSeparee(): ?bool
     {
-        return $this->toilette_separee;
+        return $this->toiletteSeparee;
     }
 
-    public function setToiletteSeparee(bool $toilette_separee): self
+    public function setToiletteSeparee(bool $toiletteSeparee): self
     {
-        $this->toilette_separee = $toilette_separee;
+        $this->toiletteSeparee = $toiletteSeparee;
 
         return $this;
     }
 
-    public function getphoto1(): ?string
+    public function getPhoto1(): ?string
     {
         return $this->photo1;
     }
 
-    public function setphoto1(string $photo1): self
+    public function setPhoto1(string $photo1): self
     {
         $this->photo1 = $photo1;
 
@@ -378,4 +424,6 @@ class Posting
 
         return $this;
     }
+
+
 }
