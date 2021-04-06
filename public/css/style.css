@@ -1,17 +1,25 @@
-footer {
-    background-color:#525252 ;
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
-}
-
-.nav-bar{
+body{
     background-color: #525252;
-    
 }
-svg {
+img {
     vertical-align: middle;
     width: 200px;
-  }
+    height: 200px;
+}
 
-   
+.section-logo-bas{
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+}
+p{
+    margin-top:90px ;
+	font-family:Montserrat;
+    margin-right: 100px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

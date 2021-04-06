@@ -4,9 +4,86 @@ body{
 .container{
     margin-top: 100px;
     margin-bottom: 100px;
-    width: 400px;
+    padding-top: 40px;
+    padding-left: 60px;
+    width: 550px;
+    height: 1000px;
     display: flex;
     justify-content: center;
     background-color: #CCCCCC;
     
+}
+h1{
+    margin-top: 30px;
+    color:white;
+    text-align: center;
+}
+.form-adresse{
+  margin-left: 80px;
+  background-color: #CCCCCC;
+  
+}
+.form-type{
+    margin-left: 100px;
+    background-color: #CCCCCC;
+}
+.form-meuble{
+    margin-left: 84px;
+    background-color: #CCCCCC;
+}
+.form-pieces{
+    margin-left: 30px;
+    background-color: #CCCCCC;
+}
+.form-superficie{
+    margin-left: 65px;
+    background-color: #CCCCCC;
+}
+.form-loyer{
+    margin-left: 100px;
+    background-color: #CCCCCC;
+}
+.form-caution{
+    margin-left: 85px;
+    background-color: #CCCCCC;
+}
+.form-date-debut{
+    margin-left: 135px;
+    background-color: #CCCCCC;
+}
+.form-duree-bail{
+    margin-left: 60px;
+    background-color: #CCCCCC;
+}
+.form-cave{
+    margin-left: 100px;
+    background-color: #CCCCCC;
+}
+.form-parking{
+    margin-left: 40px;
+    background-color: #CCCCCC;
+}
+.form-ascenseur{
+    margin-left: 60px;
+    background-color: #CCCCCC;
+}
+.form-gardien{
+    margin-left: 80px;
+    background-color: #CCCCCC;
+}
+.form-balcon{
+    margin-left: 90px;
+    background-color: #CCCCCC;
+}
+.form-cuisine{
+    margin-left: 25px;
+    background-color: #CCCCCC;
+}
+.form-toilette{
+    margin-left: 25px;
+    background-color: #CCCCCC;
+}
+.form-photo{
+    margin-left: 130px;
+    background-color: #CCCCCC;
 }
