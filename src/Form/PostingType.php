@@ -141,7 +141,7 @@ class PostingType extends AbstractType
                 'required' => true,
                 'attr' => ['class' => 'form-photo'],
             ])
-            ->add('photo2', FileType::class, [
+            ->add('photo2', FileType::class,[
                 'data_class' => null,
                 'constraints' => [
                     new File([
@@ -171,7 +171,7 @@ class PostingType extends AbstractType
                 'required' => true,
                 'attr' => ['class' => 'form-photo'],
             ])
-            ->add('photo4', FileType::class, [
+            ->add('photo4', FileType::class,[
                 'data_class' => null,
                 'constraints' => [
                     new File([
@@ -203,7 +203,7 @@ class PostingType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Créer l\'annonce',
-                'attr' => ['class' => 'form-boutton'],
+                'attr' => ['class' => 'form-submit'],
             ])
         ;
     }
