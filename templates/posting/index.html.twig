@@ -1,25 +1,90 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Annonce
+{# {% block title %}Voici l'annonce {{ posting.titre }}
+{% endblock %} #}
+
+{% block title %}Voici l'annonce
 {% endblock %}
 
-{% block body %}
-<div class="container">
-    <h1>{{ annonce.titre }}</h1>
-    <img src="{{   asset('img/postings/' ~ posting.photo1) }}" alt="">
-    <p>Publié le
-        {{annonce.date|date('d/m/Y')}}</p>
-    <p>{{annonce.contenu}}</p>
+{% block content %}
 
-    {{ form( form, {'action': path( 'creer_commentaire', {'annonce_id': annonce.id} )} ) }}
 
-    {% for commentaire in annonce.commentaires %}
-    <p>
-        <span class="d-block font-weight-bold">Le {{ commentaire.date|date('d/m/Y') }}</span>
-        {{ commentaire.contenu }}
-    </p>
-    {% else %}
-    <p>Cet annonce n'a pas encore de commentaire.</p>
-    {% endfor %}
-</div>
+	<div class="container">
+		<p>Ville :
+			{{posting.adresse}}
+			<span>Type de bien :
+				{{posting.type}}</span>
+		</p>
+
+		<img src="{{ asset('img/postings/' ~ posting.photo1) }}" alt="">
+		<img src="{{ asset('img/postings/' ~ posting.photo2) }}" alt="">
+		<img src="{{ asset('img/postings/' ~ posting.photo3) }}" alt="">
+		<img src="{{ asset('img/postings/' ~ posting.photo4) }}" alt="">
+		<img src="{{ asset('img/postings/' ~ posting.photo5) }}" alt="">
+
+		{% if posting.meuble == 0 %}
+			<p>Meublé</p>
+		{% else %}
+			<p>Non meublé</p>
+
+		{% endif %}
+
+		<p>{{posting.getNombrePieces}}</p>
+		<p>{{posting.superficie}}</p>
+		<p>{{posting.loyer}}</p>
+		<p>{{posting.caution}}</p>
+		<p>{{posting.getDateDebut|date('d/m/Y')}}</p>
+		<p>{{posting.getDureeBail}}</p>
+
+		{% if posting.cave == 0 %}
+			<p>cave : oui</p>
+		{% else %}
+			<p>cave : non</p>
+
+		{% endif %}
+		{% if posting.getPlaceParking == 0 %}
+			<p>parking : oui</p>
+		{% else %}
+			<p>parking : non</p>
+
+		{% endif %}
+		{% if posting.ascenseur == 0 %}
+			<p>ascenseur : oui</p>
+		{% else %}
+			<p>ascenseur : non</p>
+
+		{% endif %}
+		{% if posting.gardien == 0 %}
+			<p>gardien : oui</p>
+		{% else %}
+			<p>gadien : non</p>
+
+		{% endif %}
+		{% if posting.balcon == 0 %}
+			<p>balcon : oui</p>
+		{% else %}
+			<p>balcon : non</p>
+
+		{% endif %}
+		{% if posting.getCuisineEquipee == 0 %}
+			<p>cuisine équipée : oui</p>
+		{% else %}
+			<p>cuisine équipée : non</p>
+
+		{% endif %}
+
+		{% if posting.getToiletteSeparee == 0 %}
+			<p>toilette séparée : oui</p>
+		{% else %}
+			<p>toilette séparée : non</p>
+
+		{% endif %}
+		{# <p>{{posting.getPlaceParking}}</p>
+							<p>{{posting.ascenseur}}</p>
+							<p>{{posting.gardien}}</p>
+							<p>{{posting.balcon}}</p>
+							<p>{{posting.getCuisineEquipee}}</p>
+							<p>{{posting.getToiletteSeparee}}</p> #}
+
+	</div>
 {% endblock %}

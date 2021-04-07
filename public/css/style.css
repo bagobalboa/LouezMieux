@@ -9,15 +9,23 @@ img {
 
 .section-logo-bas{
     color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     
 }
 p{
     margin-top:90px ;
 	font-family:Montserrat;
     margin-right: 100px;
+    color: white;
 }
 a{
     text-decoration: none;
