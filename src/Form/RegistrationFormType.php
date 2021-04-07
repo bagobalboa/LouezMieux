@@ -42,7 +42,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-        ;
+            ->add('user_role')
     }
 
     public function configureOptions(OptionsResolver $resolver)

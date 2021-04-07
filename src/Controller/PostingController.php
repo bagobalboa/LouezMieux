@@ -34,6 +34,10 @@ class PostingController extends AbstractController
      */
     public function createPosting(Request $r): Response
     {
+
+        $hasAccess = $this->isGranted('ROLE_PROPRIETAIRE');
+        $this->denyAccessUnlessGranted('ROLE_PROPRIETAIRE');
+
         $posting = new Posting();
 
         $form = $this->createForm(PostingType::class, $posting);

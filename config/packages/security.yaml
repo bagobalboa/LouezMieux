@@ -29,3 +29,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+    role_hierarchy:
+        ROLE_LOCATAIRE: [ROLE_USER, ROLE_LOCATAIRE]
+        ROLE_PROPRIETAIRE: [ROLE_USER, ROLE_PROPRIETAIRE]
+        
