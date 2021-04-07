@@ -203,7 +203,7 @@ class PostingType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Créer l\'annonce',
-                'attr' => ['class' => 'form-photo'],
+                'attr' => ['class' => 'form-submit'],
             ])
         ;
     }
