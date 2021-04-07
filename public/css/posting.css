@@ -87,3 +87,10 @@ h1{
     margin-left: 130px;
     background-color: #CCCCCC;
 }
+.form-boutton{
+    color: white;
+    margin-top: 20px;
+    margin-left: 130px;
+    background-color: #013376;
+    border-radius: 10px;
+}
