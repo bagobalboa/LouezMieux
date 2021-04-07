@@ -182,7 +182,9 @@ class PostingType extends AbstractType
                             'image/gif',
                         ]
                     ])
-                ]
+                ],
+                'required' => true,
+                'attr' => ['class' => 'form-photo'],
             ])
             ->add('photo5', FileType::class, [
                 'data_class' => null,
@@ -201,6 +203,7 @@ class PostingType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Créer l\'annonce',
+                'attr' => ['class' => 'form-photo'],
             ])
         ;
     }
