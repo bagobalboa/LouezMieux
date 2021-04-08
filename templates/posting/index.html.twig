@@ -1,25 +1,71 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Annonce
+{% block title %}annonce
 {% endblock %}
 
-{% block body %}
-<div class="container">
-    <h1>{{ annonce.titre }}</h1>
-    <img src="{{   asset('img/postings/' ~ posting.photo1) }}" alt="">
-    <p>Publié le
-        {{annonce.date|date('d/m/Y')}}</p>
-    <p>{{annonce.contenu}}</p>
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
+	<link rel="stylesheet" href="{{ asset('css/posting.css') }}">
+{% endblock %}
 
-    {{ form( form, {'action': path( 'creer_commentaire', {'annonce_id': annonce.id} )} ) }}
+{% block content %}
+	<div class="contenu">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo1) }}" alt="">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo2) }}" alt="">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo3) }}" alt="">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo4) }}" alt="">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo5) }}" alt="">
+	</div>
+    <div class="principal">
+		{# <h1>{{ posting.adress }}</h1>#}
+		<h1>magnifique villa</h1>
+		{# <p>{{posting.adresse}}</p> #}
+		<p>40 rue madeleine odru 06120</p>
+		{# <p>{{posting.type}}</p> #}
+		<p>A 10 minutes de la gare de Corbeil-Essonnes, nous vous  proposons un superbe appartement Situé au 3ème étage sans ascenseur
+															
+															L'entrée avec interphone, donnant dans le séjour. 
+															
+															La pièce de vie composée d'un canapé, deux tables basses, quelques décorations murales, un meuble de rangement et un meuble à étagères. 
+															
+															La cuisine ouverte et toute équipée : évier, plaque de cuisson gaz quatre feux, four, micro-ondes, réfrigérateur avec congélateur, rangements multiples et grande fenêtre sur cour. 
+															
+															La salle de bain dispose d'un lavabo, d'une fenêtre et d'une cabine de douche. 
+															
+															Les WC sont séparés.</p>
+	</div>
+	<div class="card-infos">
+		<p>maison</p>
+		{# <p>{{posting.meuble}}</p> #}
+		<p>Meublée : oui</p>
+		{# <p>{{posting.nombre_pieces}}</p>#}
+		<p>3 piéce</p>
+		{# <p>{{posting.superficie}}</p> #}
+		<p>200m²</p>
+		{# <p>{{posting.loyer}}</p> #}
+		<p>1200€</p>
+		{# <p>{{posting.caution}}</p> #}
+		<p>300€</p>
+		{# <p>{{posting.date_debut}}</p>#}
+		<p>12/02/2021</p>
+		{# <p>{{posting.duree_bail}}</p> #}
+		<p>2 ans</p>
+		{# <p>{{posting.cave}}</p> #}
+		<p>cave : non</p>
+		{# <p>{{posting.place_parking}}</p> #}
+		<p>Parking : oui</p>
+		{# <p>{{posting.ascenseur}}</p> #}
+		<p>ascenseur: oui</p>
+		{# <p>{{posting.gardien}}</p> #}
+		<p>gardien : non</p>
+		{# <p>{{posting.balcon}}</p> #}
+		<p>balcon : oui</p>
+		{# <p>{{posting.cuisine_equipee}}</p> #}
+		<p>cuisine_equipee : oui</p>
+		{# <p>{{posting.toilette_separee}}</p> #}
+		<p>toilette_separee : non</p>
 
-    {% for commentaire in annonce.commentaires %}
-    <p>
-        <span class="d-block font-weight-bold">Le {{ commentaire.date|date('d/m/Y') }}</span>
-        {{ commentaire.contenu }}
-    </p>
-    {% else %}
-    <p>Cet annonce n'a pas encore de commentaire.</p>
-    {% endfor %}
-</div>
+
+	</div>
 {% endblock %}

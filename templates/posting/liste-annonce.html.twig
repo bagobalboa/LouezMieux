@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Toutes les annonces
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/listing-posting.css') }}">
+{% endblock %}
+
+{% block content %}
+	<h1>Annonces </h1>
+	<div class="filtre-recherche">
+
+    </div>
+	<div style="display: flex;">
+		{% for a in annonce %}
+			<div style="display: inline-block; width: 30%;">
+				<img src="{{asset('img/articles/' ~ a.image)}}" alt="Avatar" style="width:100%">
+				 <div class="container">
+                  {# <h4>{{posting.titre}}</h4> #}
+                                <h4>Magnifique villa dans un quartier résidentiel </h4
+                    {# <p> Publié le:
+                     {{posting.date|date('d/m/Y')}}</p> #}
+                                                 07/04/2021
+                </div>
+			</div>
+		{% else %}
+			<p>Il n'y a aucun article à afficher.</p>
+		{% endfor %}
+	</div>
+	
+{% endblock %}
