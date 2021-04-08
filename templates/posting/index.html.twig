@@ -17,12 +17,11 @@
 		<img class="image" src="{{ asset('img/postings/' ~ posting.photo4) }}" alt="">
 		<img class="image" src="{{ asset('img/postings/' ~ posting.photo5) }}" alt="">
 	</div>
+<div class="text-card">
     <div class="principal">
-		{# <h1>{{ posting.adress }}</h1>#}
+		{# <h1>{{ posting.titre }}</h1> #}
 		<h1>magnifique villa</h1>
-		{# <p>{{posting.adresse}}</p> #}
-		<p>40 rue madeleine odru 06120</p>
-		{# <p>{{posting.type}}</p> #}
+		{# <p>{{posting.description}}</p> #}
 		<p>A 10 minutes de la gare de Corbeil-Essonnes, nous vous  proposons un superbe appartement Situé au 3ème étage sans ascenseur
 															
 															L'entrée avec interphone, donnant dans le séjour. 
@@ -35,38 +34,69 @@
 															
 															Les WC sont séparés.</p>
 	</div>
-<div class="">
 	<div class="card-infos">
-		<p>maison</p>
-		{# <p>{{posting.meuble}}</p> #}
-		<p>Meublée : oui</p>
-		{# <p>{{posting.nombre_pieces}}</p>#}
-		<p>3 piéce</p>
-		{# <p>{{posting.superficie}}</p> #}
-		<p>200m²</p>
-		{# <p>{{posting.loyer}}</p> #}
-		<p>1200€</p>
-		{# <p>{{posting.caution}}</p> #}
-		<p>300€</p>
-		{# <p>{{posting.date_debut}}</p>#}
-		<p>12/02/2021</p>
-		{# <p>{{posting.duree_bail}}</p> #}
-		<p>2 ans</p>
-		{# <p>{{posting.cave}}</p> #}
-		<p>cave : non</p>
-		{# <p>{{posting.place_parking}}</p> #}
-		<p>Parking : oui</p>
-		{# <p>{{posting.ascenseur}}</p> #}
-		<p>ascenseur: oui</p>
-		{# <p>{{posting.gardien}}</p> #}
-		<p>gardien : non</p>
-		{# <p>{{posting.balcon}}</p> #}
-		<p>balcon : oui</p>
-		{# <p>{{posting.cuisine_equipee}}</p> #}
-		<p>cuisine_equipee : oui</p>
-		{# <p>{{posting.toilette_separee}}</p> #}
-		<p>toilette_separee : non</p>
+		<p>Ville :
+			{{posting.adresse}}<br>
+			<span>Type de bien :
+				{{posting.type}}</span>
+		</p>
+		{% if posting.meuble == 0 %}
+			<p>Meublé</p>
+		{% else %}
+			<p>Non meublé</p>
 
+		{% endif %}
+		<p>{{posting.getNombrePieces}}</p>
+		<p>{{posting.superficie}}</p>
+		<p>{{posting.loyer}}</p>
+		<p>{{posting.caution}}</p>
+		<p>{{posting.getDateDebut|date('d/m/Y')}}</p>
+		<p>{{posting.getDureeBail}}</p>
+		
+		{% if posting.cave == 0 %}
+			<p>cave : oui</p>
+		{% else %}
+			<p>cave : non</p>
 
+		{% endif %}
+		{% if posting.getPlaceParking == 0 %}
+			<p>parking : oui</p>
+		{% else %}
+			<p>parking : non</p>
+
+		{% endif %}
+		{% if posting.ascenseur == 0 %}
+			<p>ascenseur : oui</p>
+		{% else %}
+			<p>ascenseur : non</p>
+
+		{% endif %}
+		{% if posting.gardien == 0 %}
+			<p>gardien : oui</p>
+		{% else %}
+			<p>gadien : non</p>
+
+		{% endif %}
+		{% if posting.balcon == 0 %}
+			<p>balcon : oui</p>
+		{% else %}
+			<p>balcon : non</p>
+
+		{% endif %}
+		{% if posting.getCuisineEquipee == 0 %}
+			<p>cuisine équipée : oui</p>
+		{% else %}
+			<p>cuisine équipée : non</p>
+
+		{% endif %}
+
+		{% if posting.getToiletteSeparee == 0 %}
+			<p>toilette séparée : oui</p>
+		{% else %}
+			<p>toilette séparée : non</p>
+
+		{% endif %}
 	</div>
+</div>
+
 {% endblock %}

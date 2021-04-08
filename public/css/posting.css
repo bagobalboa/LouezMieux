@@ -4,6 +4,7 @@
     width: 300px;
     height: 200px;
 }
+
 .contenu{
     padding:0px;
     margin-top: 50px;
@@ -11,14 +12,17 @@
     display: flex;
     justify-content: center;
     
+    
 }
 .principal{
     width: 400px;
     height: 600px;
     margin-top: 30px;
-    border-top: white 1px solid ;
     color: white;
-    text-align: left;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 100px;
+    line-height: 2em;
    
 }
 .card-infos{
@@ -28,7 +32,16 @@
     border: 1px white solid;
     text-align: center;
     color: white;
+    padding-top: 10px;
+    margin-top: 50px;
+    margin-right: 100px;
+    line-height: 20px;
    
+}
+.text-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
    
     
