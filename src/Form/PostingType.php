@@ -33,8 +33,8 @@ class PostingType extends AbstractType
             ])
             ->add('meuble', ChoiceType::class, [
                 'choices' => [
-                    'Meublé' => 'meuble',
-                    'Non meublé' => 'non-meuble',
+                    'Meublé' => true,
+                    'Non meublé' => false,
                 ],
                 'required' => true,
                 'attr' => ['class' => 'form-meuble'],
@@ -66,62 +66,67 @@ class PostingType extends AbstractType
                 'required' => true,
                 'attr' => ['class' => 'form-date-debut'],
             ])
-            ->add('duree_bail', NumberType::class,   [
+            ->add('duree_bail', ChoiceType::class, [
+                'choices' => [
+                    1 => 1,
+                    2 => 2,
+                    3 => 3,
+                ],
                 'required' => true,
                 'attr' => ['class' => 'form-duree-bail'],
             ])
             ->add('cave', ChoiceType::class, [
                 'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false',
+                    'Oui' => true,
+                    'Non' => false,
                 ],
                 'required' => true,
                 'attr' => ['class' => 'form-cave'],
             ])
             ->add('place_parking', ChoiceType::class,  [
                 'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false',
+                    'Oui' => true,
+                    'Non' => false,
                 ],
                 'required' => true,
                 'attr' => ['class' => 'form-parking'],
             ])
             ->add('ascenseur', ChoiceType::class,  [
                 'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false',
+                    'Oui' => true,
+                    'Non' => false,
                 ],
                 'required' => true,
                 'attr' => ['class' => 'form-ascenseur'],
             ])
             ->add('gardien', ChoiceType::class,  [
                 'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false',
+                    'Oui' => true,
+                    'Non' => false,
                 ],
                 'required' => true,
                 'attr' => ['class' => 'form-gardien'],
             ])
             ->add('balcon', ChoiceType::class,  [
                 'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false',
+                    'Oui' => true,
+                    'Non' => false,
                 ],
                 'required' => true,
                 'attr' => ['class' => 'form-balcon'],
             ])
             ->add('cuisine_equipee', ChoiceType::class,  [
                 'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false',
+                    'Oui' => true,
+                    'Non' => false,
                 ],
                 'required' => true,
                 'attr' => ['class' => 'form-cuisine'],
             ])
             ->add('toilette_separee', ChoiceType::class,  [
                 'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false',
+                    'Oui' => true,
+                    'Non' => false,
                 ],
                 'required' => true,
                 'attr' => ['class' => 'form-toilette'],
@@ -204,8 +209,7 @@ class PostingType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Créer l\'annonce',
                 'attr' => ['class' => 'form-submit'],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
