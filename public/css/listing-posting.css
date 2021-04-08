@@ -1,0 +1,88 @@
+.filtre-recherche{
+    border-inline-color: black 2px solid;
+}
+.image{
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+            position: relative; 
+            max-width: 100%;
+    -webkit-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.contenu{
+    padding:0px;
+    margin-top: 50px;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: space-between;
+    
+}
+.image:hover{
+    
+        -webkit-transform: scale(1.4);
+    
+            -ms-transform: scale(1.4);
+    
+                transform: scale(1.3);
+
+}
+.ficheAnnonce{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
+}
+.principal{
+    width: 400px;
+    height: 600px;
+    margin-top: 30px;
+    border: white 1px solid ;
+    border-radius: 12px 12px 12px 12px;
+    -webkit-box-shadow: 12px #013376;
+            box-shadow:12px #013376;
+    color: white;
+    text-align: left;
+    background: -o-linear-gradient(left, #ACE0FF,#013376);
+    background: -webkit-gradient(linear, left top, right top, from(#ACE0FF),to(#013376));
+    background: linear-gradient(to right, #ACE0FF,#013376);
+    
+            -webkit-box-shadow: 40px -16px #ACE0FF;
+    
+                    box-shadow: 10px -10px#ACE0FF;
+                    opacity: 0.8;
+}
+.card-infos{
+    width: 400px;
+    height: 600px;
+    margin-top: 30px;
+    border-radius: 12px 12px 12px 12px;
+    -webkit-box-pack: right;
+        -ms-flex-pack: right;
+            justify-content: right;
+    border: 1px white solid;
+    -webkit-box-shadow: 10px -10px #013376;
+            box-shadow: 10px -10px #013376;
+    text-align: center;
+    color: white;
+    background: -o-linear-gradient(right, #ACE0FF,#013376);
+    background: -webkit-gradient(linear, right top, left top, from(#ACE0FF),to(#013376));
+    background: linear-gradient(to left, #ACE0FF,#013376);
+    opacity: 0.8;
+}
+   
+    
