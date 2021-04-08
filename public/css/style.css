@@ -14,8 +14,8 @@ img {
     flex-direction: row;
     
 }
-p{
-    margin-top:90px ;
+.nom-logo{
+    margin-top:50px ;
 	font-family:Montserrat;
     margin-right: 100px;
 }
