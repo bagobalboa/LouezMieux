@@ -1,90 +1,99 @@
 {% extends 'base.html.twig' %}
 
-{# {% block title %}Voici l'annonce {{ posting.titre }}
-{% endblock %} #}
+{% block title %}
+	{{ posting.titre }}
+{% endblock %}
 
-{% block title %}Voici l'annonce
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/posting.css') }}">
 {% endblock %}
 
 {% block content %}
+	<div class="contenu">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo1) }}" alt="">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo2) }}" alt="">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo3) }}" alt="">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo4) }}" alt="">
+		<img class="image" src="{{ asset('img/postings/' ~ posting.photo5) }}" alt="">
+	</div>
+
+	<div class="ficheAnnonce">
+		<div class="principal">
+
+			<h1>{{posting.adresse}}</h1>
 
 
-	<div class="container">
-		<p>Ville :
-			{{posting.adresse}}
-			<span>Type de bien :
-				{{posting.type}}</span>
-		</p>
+			<p>{{posting.description}}</p>
+		</div>
 
-		<img src="{{ asset('img/postings/' ~ posting.photo1) }}" alt="">
-		<img src="{{ asset('img/postings/' ~ posting.photo2) }}" alt="">
-		<img src="{{ asset('img/postings/' ~ posting.photo3) }}" alt="">
-		<img src="{{ asset('img/postings/' ~ posting.photo4) }}" alt="">
-		<img src="{{ asset('img/postings/' ~ posting.photo5) }}" alt="">
+		<div class="card-infos">
+			{% if posting.meuble == 1 %}
+				<p>Meublé</p>
+			{% else %}
+				<p>Non meublé</p>
 
-		{% if posting.meuble == 0 %}
-			<p>Meublé</p>
-		{% else %}
-			<p>Non meublé</p>
+			{% endif %}
 
-		{% endif %}
+			<p>Nombre de pièces :
+				{{posting.getNombrePieces}}</p>
+			<p>Superficie en m2 :
+				{{posting.superficie}}</p>
+			<p>Loyer mensuel en € :
+				{{posting.loyer}}</p>
+			<p>Caution en € :
+				{{posting.caution}}</p>
+			<p>Date de disponibilité :
+				{{posting.getDateDebut|date('d/m/Y')}}</p>
+			<p>Durée de location proposée (en mois) :
+				{{posting.getDureeBail}}</p>
 
-		<p>{{posting.getNombrePieces}}</p>
-		<p>{{posting.superficie}}</p>
-		<p>{{posting.loyer}}</p>
-		<p>{{posting.caution}}</p>
-		<p>{{posting.getDateDebut|date('d/m/Y')}}</p>
-		<p>{{posting.getDureeBail}}</p>
+			{% if posting.cave == 1 %}
+				<p>cave : oui</p>
+			{% else %}
+				<p>cave : non</p>
 
-		{% if posting.cave == 0 %}
-			<p>cave : oui</p>
-		{% else %}
-			<p>cave : non</p>
+			{% endif %}
+			{% if posting.getPlaceParking == 1 %}
+				<p>parking : oui</p>
+			{% else %}
+				<p>parking : non</p>
 
-		{% endif %}
-		{% if posting.getPlaceParking == 0 %}
-			<p>parking : oui</p>
-		{% else %}
-			<p>parking : non</p>
+			{% endif %}
+			{% if posting.ascenseur == 1 %}
+				<p>ascenseur : oui</p>
+			{% else %}
+				<p>ascenseur : non</p>
 
-		{% endif %}
-		{% if posting.ascenseur == 0 %}
-			<p>ascenseur : oui</p>
-		{% else %}
-			<p>ascenseur : non</p>
+			{% endif %}
+			{% if posting.gardien == 1 %}
+				<p>gardien : oui</p>
+			{% else %}
+				<p>gadien : non</p>
 
-		{% endif %}
-		{% if posting.gardien == 0 %}
-			<p>gardien : oui</p>
-		{% else %}
-			<p>gadien : non</p>
+			{% endif %}
+			{% if posting.balcon == 1 %}
+				<p>balcon : oui</p>
+			{% else %}
+				<p>balcon : non</p>
 
-		{% endif %}
-		{% if posting.balcon == 0 %}
-			<p>balcon : oui</p>
-		{% else %}
-			<p>balcon : non</p>
+			{% endif %}
+			{% if posting.getCuisineEquipee == 1 %}
+				<p>cuisine équipée : oui</p>
+			{% else %}
+				<p>cuisine équipée : non</p>
 
-		{% endif %}
-		{% if posting.getCuisineEquipee == 0 %}
-			<p>cuisine équipée : oui</p>
-		{% else %}
-			<p>cuisine équipée : non</p>
+			{% endif %}
 
-		{% endif %}
+			{% if posting.getToiletteSeparee == 1 %}
+				<p>toilette séparée : oui</p>
+			{% else %}
+				<p>toilette séparée : non</p>
 
-		{% if posting.getToiletteSeparee == 0 %}
-			<p>toilette séparée : oui</p>
-		{% else %}
-			<p>toilette séparée : non</p>
+			{% endif %}
 
-		{% endif %}
-		{# <p>{{posting.getPlaceParking}}</p>
-							<p>{{posting.ascenseur}}</p>
-							<p>{{posting.gardien}}</p>
-							<p>{{posting.balcon}}</p>
-							<p>{{posting.getCuisineEquipee}}</p>
-							<p>{{posting.getToiletteSeparee}}</p> #}
 
+		</div>
 	</div>
 {% endblock %}
