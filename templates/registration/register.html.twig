@@ -2,6 +2,13 @@
 
 {% block title %} S'inscrire {% endblock %}
 
+
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/inscription.css') }}">
+{% endblock %}
+
 {% block content %}
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
@@ -9,8 +16,7 @@
 
     <main class="w-100 d-flex flex-column justify-content-start align-items-center center-block text-center">
         <h1 class="my-5"> S'inscrire </h1>
-
-        <div class="form-group col-md-4 d center-block text-center">
+        <div id="formulaire" class="form-group col-md-4 d center-block text-center">
             {{ form_start(registrationForm) }}
                 {{ form_row(registrationForm.email) }}
                 {{ form_row(registrationForm.password) }}
