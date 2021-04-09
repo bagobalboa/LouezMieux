@@ -2,11 +2,17 @@
 
 {% block title %}Log in!{% endblock %}
 
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+{% endblock %}
+
 {% block content %}
 <main class="w-100 d-flex flex-column justify-content-start align-items-center center-block text-center">
     <h1 class="my-5"> Se connecter </h1>
 
-    <form method="post">
+    <form  class="formulaire" method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -24,7 +30,7 @@
         <label for="inputPassword">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" required>
         <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}">
+            value="{{ csrf_token('authenticate') }}"><br>
 
         <button class="btn btn-lg btn-primary" type="submit">
             Se connecter

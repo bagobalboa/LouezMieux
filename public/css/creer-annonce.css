@@ -1,6 +1,4 @@
-body{
-    background-color: #525252;
-}
+
 .container{
     margin-top: 100px;
     margin-bottom: 100px;
@@ -14,7 +12,7 @@ body{
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background-color: #CCCCCC;
+    background-color: #b3b3b3;
     
 }
 h1{
