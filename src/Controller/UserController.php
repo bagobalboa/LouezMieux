@@ -4,86 +4,70 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
-use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/utilisateur")
  * 
  * @IsGranted("ROLE_USER")
  */
-class UserController extends AbstractController
-{
-    /**
-     * @Route("/afficher-les-utilisateurs", name="user_index", methods={"GET"})
-     */
-    // public function index(UserRepository $userRepository): Response
-    // {
-    //     return $this->render('user/afficher-les-utilisateurs.html.twig', [
-    //         'users' => $userRepository->findAll(),
-    //     ]);
-    // }
-
-    /**
-     * @Route("/nouvel-utilisateur", name="user_new", methods={"GET","POST"})
-     */
-    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
-    {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            //encodage du mot de passe
-            $user->setPassword(
-            $passwordEncoder->encodePassword($user, $user->getPassword()));
-            $entityManager->persist($user);
-            $entityManager->flush();
-            
-            return $this->redirectToRoute('user_show');
-        }
-
-        return $this->render('user/nouvel-utilisateur.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
-    }
-
+class UserController extends AbstractController {
+    
     /**
      * @Route("/utilisateur/{id}", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response
     {
-        return $this->render('user/afficher-utilisateur.html.twig', [
-            'user' => $user,
-        ]);
+        if ($this->isGranted('ROLE_LOCATAIRE')) {
+            return $this->render('user/afficher-locataire.html.twig', [
+                'user' => $user,
+            ]);
+        } else if ($this->isGranted('ROLE_PROPRIETAIRE')) {
+            return $this->render('user/afficher-proprietaire.html.twig', [
+                'user' => $user,
+            ]);
+        }
     }
-
+    
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, User $user): Response
     {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+        if ($this->isGranted('ROLE_LOCATAIRE')) {
+            $form = $this->createForm(UserType::class, $user);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+                return $this->redirectToRoute('user_show');
+            }
+            
+            return $this->render('user/edit.html.twig', [
+                'user' => $user,
+                'form' => $form->createView(),
+            ]);
+        }  else if ($this->isGranted('ROLE_PROPRIETAIRE')) {
+            $form = $this->createForm(UserType::class, $user);
+            $form->handleRequest($request);
 
-            return $this->redirectToRoute('user_index');
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
+
+                return $this->redirectToRoute('user_show');
+            }
+
+            return $this->render('user/edit.html.twig', [
+                'user' => $user,
+                'form' => $form->createView(),
+            ]);
         }
-
-        return $this->render('user/edit.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
     }
-
+    
     /**
      * @Route("/{id}", name="user_delete", methods={"POST"})
      */
