@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block  title %} Page Locataire{% endblock %}
+
+{% block content %}
+    {% if is_granted('ROLE_LOCATAIRE') %}
+        <p> {{user.prenom}} </p>
+        <p> {{user.nom }} </p>
+        <p> {{user.note }} </p>
+        <p> {{user.email }} </p>
+        <p> {{user.telephone }} </p>
+        <p> {{user.adresse }} </p>
+
+
+        <a href="{{ path('user_index') }}">back to list</a>
+
+        <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+
+        {{ include('user/_delete_form.html.twig') }}
+        
+    {% endif %}
+
+{% endblock %}
