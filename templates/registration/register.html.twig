@@ -15,8 +15,9 @@
     {% endfor %}
 
     <main class="w-100 d-flex flex-column justify-content-start align-items-center center-block text-center">
-        <h1 class="my-5"> S'inscrire </h1>
-        <div id="formulaire" class="form-group col-md-4 d center-block text-center">
+        <div  id="formulaire" class="form-group col-md-4 d center-block text-center">
+          <img class="icone" src="./icone/icon.svg">
+          <h1 class="my-5"> S'inscrire </h1>
             {{ form_start(registrationForm) }}
                 {{ form_row(registrationForm.email) }}
                 {{ form_row(registrationForm.password) }}

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <metadata id="metadata22">image/svg+xml</metadata>
+ <title>Abstract user icon</title>
+ <defs>
+  <clipPath id="circular-border">
+   <circle cx="300" cy="300" id="circle4" r="280"/>
+  </clipPath>
+  <clipPath id="avoid-antialiasing-bugs">
+   <rect height="498" id="rect7" width="100%"/>
+  </clipPath>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <circle clip-path="url(#avoid-antialiasing-bugs)" cx="300" cy="300" fill="#ffffff" id="circle12" r="280"/>
+  <circle cx="300" cy="230" fill="#3f3f3f" id="circle14" r="115" transform="matrix(1 0 0 1 0 0)"/>
+  <circle clip-path="url(#circular-border)" cx="300" cy="550" fill="#3f3f3f" id="circle16" r="205" transform="matrix(1 0 0 1 0 0)"/>
+ </g>
+</svg>
