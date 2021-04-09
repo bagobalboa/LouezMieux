@@ -1,6 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %}annonce
+{% block title %}
+	{{ posting.titre }}
 {% endblock %}
 
 {% block css %}
@@ -100,4 +101,81 @@
 		</div>
 	</div>
 
-{% endblock %}
+	<div class="ficheAnnonce">
+		<div class="principal">
+
+			<h1>{{posting.adresse}}</h1>
+
+
+			<p>{{posting.description}}</p>
+		</div>
+
+		<div class="card-infos">
+			{% if posting.meuble == 1 %}
+				<p>Meublé</p>
+			{% else %}
+				<p>Non meublé</p>
+
+			{% endif %}
+
+			<p>Nombre de pièces :
+				{{posting.getNombrePieces}}</p>
+			<p>Superficie en m2 :
+				{{posting.superficie}}</p>
+			<p>Loyer mensuel en € :
+				{{posting.loyer}}</p>
+			<p>Caution en € :
+				{{posting.caution}}</p>
+			<p>Date de disponibilité :
+				{{posting.getDateDebut|date('d/m/Y')}}</p>
+			<p>Durée de location proposée (en mois) :
+				{{posting.getDureeBail}}</p>
+
+			{% if posting.cave == 1 %}
+				<p>cave : oui</p>
+			{% else %}
+				<p>cave : non</p>
+
+			{% endif %}
+			{% if posting.getPlaceParking == 1 %}
+				<p>parking : oui</p>
+			{% else %}
+				<p>parking : non</p>
+
+			{% endif %}
+			{% if posting.ascenseur == 1 %}
+				<p>ascenseur : oui</p>
+			{% else %}
+				<p>ascenseur : non</p>
+
+			{% endif %}
+			{% if posting.gardien == 1 %}
+				<p>gardien : oui</p>
+			{% else %}
+				<p>gadien : non</p>
+
+			{% endif %}
+			{% if posting.balcon == 1 %}
+				<p>balcon : oui</p>
+			{% else %}
+				<p>balcon : non</p>
+
+			{% endif %}
+			{% if posting.getCuisineEquipee == 1 %}
+				<p>cuisine équipée : oui</p>
+			{% else %}
+				<p>cuisine équipée : non</p>
+
+			{% endif %}
+
+			{% if posting.getToiletteSeparee == 1 %}
+				<p>toilette séparée : oui</p>
+			{% else %}
+				<p>toilette séparée : non</p>
+
+			{% endif %}
+
+
+		</div>
+	</div>
+</div>{% endblock %}

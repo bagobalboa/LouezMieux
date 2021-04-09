@@ -20,13 +20,18 @@ class Posting
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $titre;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $adresse;
-
+    
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $type;
-
+    
     /**
      * @ORM\Column(type="boolean")
      */
@@ -122,11 +127,33 @@ class Posting
      */
     private $photo5;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+    
     public function getAdresse(): ?string
     {
         return $this->adresse;
@@ -375,6 +402,30 @@ class Posting
     public function setPhoto5(string $photo5): self
     {
         $this->photo5 = $photo5;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

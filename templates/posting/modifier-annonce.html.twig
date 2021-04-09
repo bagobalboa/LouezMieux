@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modifier une annonce
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/posting.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/creer-annonce.css') }}">
+
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<img src="{{asset('img/articles/' ~ oldImage1)}}" alt="">
+		<img src="{{asset('img/articles/' ~ oldImage2)}}" alt="">
+		<img src="{{asset('img/articles/' ~ oldImage3)}}" alt="">
+		<img src="{{asset('img/articles/' ~ oldImage4)}}" alt="">
+		<img src="{{asset('img/articles/' ~ oldImage5)}}" alt="">
+		{{ form( form, {'action': path('modifier_annonce', {'id': id}) }) }}
+		</div>
+	{% endblock %}

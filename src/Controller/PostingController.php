@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Posting;
 use App\Form\PostingType;
 use Exception;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormError;
@@ -27,7 +28,7 @@ class PostingController extends AbstractController
 
 
         return $this->render('posting/index.html.twig', [
-            'posting' => $posting
+            'posting' => $posting,
         ]);
     }
     /**
@@ -48,6 +49,10 @@ class PostingController extends AbstractController
      */
     public function createPosting(Request $r): Response
     {
+
+        $hasAccess = $this->isGranted('ROLE_PROPRIETAIRE');
+        $this->denyAccessUnlessGranted('ROLE_PROPRIETAIRE');
+
         $posting = new Posting();
 
         $form = $this->createForm(PostingType::class, $posting);
@@ -98,7 +103,7 @@ class PostingController extends AbstractController
     }
 
     /**
-     * @Route("/supprimer-une-annonce/{id}", name="supprimer_annonce")
+     * @Route("/supprimer-annonce/{id}", name="supprimer_annonce")
      */
     public function deletePosting($id): Response
     {
@@ -112,11 +117,13 @@ class PostingController extends AbstractController
         $em->remove($posting);
         $em->flush();
 
-        return $this->redirectToRoute('gerer_annonces');
+        return $this->redirectToRoute('creer_annonce');
     }
 
     /**
-     * @Route("/modifier-une-annonce/{id}", name="modifier_annonce")
+     * @Route("/modifier-annonce/{id}", name="modifier_annonce")
+     * 
+     * @IsGranted("ROLE_PROPRIETAIRE")
      */
     public function updatePosting($id, Request $r): Response
     {

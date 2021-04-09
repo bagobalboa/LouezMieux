@@ -1,5 +1,3 @@
-
-
 body{
     background-color: #525252;
 }
@@ -9,9 +7,13 @@ body{
     padding-top: 40px;
     padding-left: 60px;
     width: 550px;
-    height: 1500px;
+    height: 1000px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     background-color: #CCCCCC;
     
 }
@@ -21,13 +23,81 @@ h1{
     text-align: center;
 }
 
+/* .form-adresse{
+  margin-left: 80px;
+ 
+  
+}
+.form-type{
+    margin-left: 100px;
+   
+}
+.form-meuble{
+    margin-left: 84px;
+   
+}
+.form-pieces{
+    margin-left: 30px;
+   
+}
+.form-superficie{
+    margin-left: 65px;
+   
+}
+.form-loyer{
+    margin-left: 100px;
+   
+}
+.form-caution{
+    margin-left: 85px;
+   
+}
+.form-date-debut{
+    margin-left: 135px;
+   
+}
+.form-duree-bail{
+    margin-left: 60px;
+   
+}
+.form-cave{
+    margin-left: 100px;
+   
+}
+.form-parking{
+    margin-left: 40px;
+   
+}
+.form-ascenseur{
+    margin-left: 60px;
+   
+}
+.form-gardien{
+    margin-left: 80px;
+   
+}
+.form-balcon{
+    margin-left: 90px;
+   
+}
+.form-cuisine{
+    margin-left: 25px;
+   
+}
+.form-toilette{
+    margin-left: 25px;
+   
+}
+.form-photo{
+    margin-left: 130px;
+   
+}
 .form-submit{
     width: 200px;
     color: white;
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
+    margin-top: 20px;
+    margin-left: 130px;
     background-color: #013376;
     border-radius: 10px;
     border-color: black;
-} 
+} */
