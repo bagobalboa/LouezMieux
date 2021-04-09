@@ -1,3 +1,24 @@
 .filtre-recherche{
     border-inline-color: black 2px solid;
 }
+.image{
+    width: 300px;
+    height: 200px;
+}
+.card-groups{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.card-infos{
+    width: 400px;
+    height: 600px;
+    border: 1px white solid;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    margin-top: 50px;
+    margin-right: 100px;
+   
+   
+}

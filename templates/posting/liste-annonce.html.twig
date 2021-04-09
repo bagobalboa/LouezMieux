@@ -8,27 +8,35 @@
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/listing-posting.css') }}">
 {% endblock %}
-
 {% block content %}
-	<h1>Annonces </h1>
-	<div class="filtre-recherche">
 
-    </div>
-	<div style="display: flex;">
-		{% for a in annonce %}
-			<div style="display: inline-block; width: 30%;">
-				<img src="{{asset('img/articles/' ~ a.image)}}" alt="Avatar" style="width:100%">
-				 <div class="container">
-                  {# <h4>{{posting.titre}}</h4> #}
-                                <h4>Magnifique villa dans un quartier résidentiel </h4
-                    {# <p> Publié le:
-                     {{posting.date|date('d/m/Y')}}</p> #}
-                                                 07/04/2021
-                </div>
+	{% for p in postings %}
+
+
+		<div class="container">
+
+			<div class="card-groups">
+
+
+				<div class="card" style="width:300px">
+					<img class="image" src="{{ asset('img/postings/' ~ p.photo1) }}" alt="">
+					<div class="card-body">
+
+						<h2 class="card-title">{{p.adresse}}</h2>
+
+						<p class="card-text">{{p.loyer}}€/mois
+						</p>
+						<p class="card-text">{{p.getNombrePieces}}
+							pièces -
+							{{p.superficie}}
+							m2
+						</p>
+						<a href="{{ path('posting', {'id': p.id}) }}" class=" btn btn-primary">voir l'annonce</a>
+					</div>
+				</div>
 			</div>
-		{% else %}
-			<p>Il n'y a aucun article à afficher.</p>
-		{% endfor %}
-	</div>
-	
+		</div>
+
+
+	{% endfor %}
 {% endblock %}
