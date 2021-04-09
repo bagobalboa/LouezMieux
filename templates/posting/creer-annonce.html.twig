@@ -10,9 +10,16 @@
 {% endblock %}
 
 {% block content %}
-	<h1>Créer une annonce </h1>
-	<div class="container">
-		{{ form( form, { 'action': path('creer_annonce') } ) }}
-		</div>
 
-	{% endblock %}
+
+	<main class="w-100 d-flex flex-column justify-content-start align-items-center center-block text-center text-white">
+		<h1 class="my-5">
+			Créer une annonce
+		</h1>
+
+		<div class="form-group col-md-4 d center-block text-center">
+			{{ form( form, { 'action': path('creer_annonce') } ) }}
+				<div></main>
+
+
+			{% endblock %}

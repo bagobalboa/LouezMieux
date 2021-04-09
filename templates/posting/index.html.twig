@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %}annonce
+{% block title %}
+	{{ posting.titre }}
 {% endblock %}
 
 {% block css %}
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/posting.css') }}">
 {% endblock %}
 
@@ -17,86 +18,82 @@
 		<img class="image" src="{{ asset('img/postings/' ~ posting.photo4) }}" alt="">
 		<img class="image" src="{{ asset('img/postings/' ~ posting.photo5) }}" alt="">
 	</div>
-<div class="text-card">
-    <div class="principal">
-		{# <h1>{{ posting.titre }}</h1> #}
-		<h1>magnifique villa</h1>
-		{# <p>{{posting.description}}</p> #}
-		<p>A 10 minutes de la gare de Corbeil-Essonnes, nous vous  proposons un superbe appartement Situé au 3ème étage sans ascenseur
-															
-															L'entrée avec interphone, donnant dans le séjour. 
-															
-															La pièce de vie composée d'un canapé, deux tables basses, quelques décorations murales, un meuble de rangement et un meuble à étagères. 
-															
-															La cuisine ouverte et toute équipée : évier, plaque de cuisson gaz quatre feux, four, micro-ondes, réfrigérateur avec congélateur, rangements multiples et grande fenêtre sur cour. 
-															
-															La salle de bain dispose d'un lavabo, d'une fenêtre et d'une cabine de douche. 
-															
-															Les WC sont séparés.</p>
+
+	<div class="ficheAnnonce">
+		<div class="principal">
+
+			<h1>{{posting.adresse}}</h1>
+
+
+			<p>{{posting.description}}</p>
+		</div>
+
+		<div class="card-infos">
+			{% if posting.meuble == 1 %}
+				<p>Meublé</p>
+			{% else %}
+				<p>Non meublé</p>
+
+			{% endif %}
+
+			<p>Nombre de pièces :
+				{{posting.getNombrePieces}}</p>
+			<p>Superficie en m2 :
+				{{posting.superficie}}</p>
+			<p>Loyer mensuel en € :
+				{{posting.loyer}}</p>
+			<p>Caution en € :
+				{{posting.caution}}</p>
+			<p>Date de disponibilité :
+				{{posting.getDateDebut|date('d/m/Y')}}</p>
+			<p>Durée de location proposée (en mois) :
+				{{posting.getDureeBail}}</p>
+
+			{% if posting.cave == 1 %}
+				<p>cave : oui</p>
+			{% else %}
+				<p>cave : non</p>
+
+			{% endif %}
+			{% if posting.getPlaceParking == 1 %}
+				<p>parking : oui</p>
+			{% else %}
+				<p>parking : non</p>
+
+			{% endif %}
+			{% if posting.ascenseur == 1 %}
+				<p>ascenseur : oui</p>
+			{% else %}
+				<p>ascenseur : non</p>
+
+			{% endif %}
+			{% if posting.gardien == 1 %}
+				<p>gardien : oui</p>
+			{% else %}
+				<p>gadien : non</p>
+
+			{% endif %}
+			{% if posting.balcon == 1 %}
+				<p>balcon : oui</p>
+			{% else %}
+				<p>balcon : non</p>
+
+			{% endif %}
+			{% if posting.getCuisineEquipee == 1 %}
+				<p>cuisine équipée : oui</p>
+			{% else %}
+				<p>cuisine équipée : non</p>
+
+			{% endif %}
+
+			{% if posting.getToiletteSeparee == 1 %}
+				<p>toilette séparée : oui</p>
+			{% else %}
+				<p>toilette séparée : non</p>
+
+			{% endif %}
+
+
+		</div>
 	</div>
-	<div class="card-infos">
-		<p>Ville :
-			{{posting.adresse}}<br>
-			<span>Type de bien :
-				{{posting.type}}</span>
-		</p>
-		{% if posting.meuble == 0 %}
-			<p>Meublé</p>
-		{% else %}
-			<p>Non meublé</p>
-
-		{% endif %}
-		<p>{{posting.getNombrePieces}}</p>
-		<p>{{posting.superficie}}</p>
-		<p>{{posting.loyer}}</p>
-		<p>{{posting.caution}}</p>
-		<p>{{posting.getDateDebut|date('d/m/Y')}}</p>
-		<p>{{posting.getDureeBail}}</p>
-		
-		{% if posting.cave == 0 %}
-			<p>cave : oui</p>
-		{% else %}
-			<p>cave : non</p>
-
-		{% endif %}
-		{% if posting.getPlaceParking == 0 %}
-			<p>parking : oui</p>
-		{% else %}
-			<p>parking : non</p>
-
-		{% endif %}
-		{% if posting.ascenseur == 0 %}
-			<p>ascenseur : oui</p>
-		{% else %}
-			<p>ascenseur : non</p>
-
-		{% endif %}
-		{% if posting.gardien == 0 %}
-			<p>gardien : oui</p>
-		{% else %}
-			<p>gadien : non</p>
-
-		{% endif %}
-		{% if posting.balcon == 0 %}
-			<p>balcon : oui</p>
-		{% else %}
-			<p>balcon : non</p>
-
-		{% endif %}
-		{% if posting.getCuisineEquipee == 0 %}
-			<p>cuisine équipée : oui</p>
-		{% else %}
-			<p>cuisine équipée : non</p>
-
-		{% endif %}
-
-		{% if posting.getToiletteSeparee == 0 %}
-			<p>toilette séparée : oui</p>
-		{% else %}
-			<p>toilette séparée : non</p>
-
-		{% endif %}
-	</div>
-</div>
-
-{% endblock %}
+</div>{% endblock %}
