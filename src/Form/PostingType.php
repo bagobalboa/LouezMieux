@@ -162,11 +162,12 @@ class PostingType extends AbstractType
                 'data_class' => null,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5M',
+                        'maxSize' => '10M',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
                             'image/gif',
+                            'image/jpg',
                         ]
                     ])
                 ],
@@ -177,11 +178,12 @@ class PostingType extends AbstractType
                 'data_class' => null,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5M',
+                        'maxSize' => '10M',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
                             'image/gif',
+                            'image/jpg',
                         ]
                     ])
                 ],
@@ -192,11 +194,12 @@ class PostingType extends AbstractType
                 'data_class' => null,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5M',
+                        'maxSize' => '10M',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
                             'image/gif',
+                            'image/jpg',
                         ]
                     ])
                 ],
@@ -207,11 +210,12 @@ class PostingType extends AbstractType
                 'data_class' => null,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5M',
+                        'maxSize' => '10M',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
                             'image/gif',
+                            'image/jpg',
                         ]
                     ])
                 ],
@@ -222,11 +226,12 @@ class PostingType extends AbstractType
                 'data_class' => null,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5M',
+                        'maxSize' => '10M',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
                             'image/gif',
+                            'image/jpg',
                         ]
                     ])
                 ],
