@@ -17,4 +17,13 @@ class ContactController extends AbstractController
             'controller_name' => 'ContactController',
         ]);
     }
+    /**
+     * @Route("/cgu", name="cgu")
+     */
+    public function CGU(): Response
+    {
+        return $this->render('contact/cgu.html.twig', [
+            'controller_name' => 'ContactController',
+        ]);
+    }
 }
