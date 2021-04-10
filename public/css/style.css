@@ -1,6 +1,12 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
+
+@font-face {
+    font-family:"Montserrat";
+    src:url("../../fonts/Montserrat-Regular.ttf");
+}
 body{
     background-color: #525252;
+    font-family:"Montserrat";
 }
 img {
     vertical-align: middle;
@@ -16,8 +22,8 @@ img {
     
 }
 .nom-logo{
-    margin-top:50px ;
-	font-family:Montserrat;
+    margin-top: 20px;
+	font-family: Montserrat;
     margin-right: 100px;
 }
 a{

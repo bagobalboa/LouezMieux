@@ -11,15 +11,29 @@
 {% endblock %}
 {% block content %}
 
-	{% for p in postings %}
 
+	<h1>
+		Nos annonces
+	</h1>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<form class="form-inline">
+			<input class="form-control mr-sm-2" type="text" placeholder="Ville">
+			<input class="form-control mr-sm-2" type="text" placeholder="Type de logement">
+			<input class="form-control mr-sm-2" type="number" placeholder="nombre de pièces">
+			<input class="form-control mr-sm-2" type="text" placeholder="Superficie">
+			<input class="form-control mr-sm-2" type="number" placeholder="Loyer">
+			<button class="btn btn-secondary" type="submit">Rechercher</button>
+		</form>
+	</nav>
+	{% for p in postings %}
 
 		<div class="container">
 
 			<div class="card-groups">
 
 
-				<div class="card" style="width:300px">
+				<div class="card">
 					<img class="image" src="{{ asset('img/postings/' ~ p.photo1) }}" alt="">
 					<div class="card-body">
 
@@ -32,12 +46,20 @@
 							{{p.superficie}}
 							m2
 						</p>
-						<a href="{{ path('posting', {'id': p.id}) }}" class=" btn btn-primary">voir l'annonce</a>
+						<a href="{{ path('posting', {'id': p.id}) }}" class="btn">voir l'annonce</a>
 					</div>
 				</div>
 			</div>
+			<div class="description">
+				{{p.description}}
+			</div>
+
 		</div>
 
 
 	{% endfor %}
+	<button class="scrollToTopBtn">TOP</button>
+{% endblock %}
+{% block js %}
+	<script src="{{ asset('js/listing-posting.js') }}"></script>
 {% endblock %}
