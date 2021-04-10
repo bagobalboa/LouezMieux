@@ -3,4 +3,69 @@
 {% block title %}contact
 {% endblock %}
 
-{% block content %}{% endblock %}
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+{% endblock %}
+
+{% block content %}
+        <h1>Nous Contacter</h1>
+	<section class="Material-contact-section section-padding section-dark">
+		<div class="container">
+			<div
+				class="row">
+				<div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+					<h2 class="section-title">Louer Mieux</h2>
+				</div>
+			</div>
+			<div
+				class="row">
+				<div class="col-md-6 mt-3 contact" data-wow-delay=".2s">
+					<p>Vous avez besoin d’aide ?
+						Gagnez du temps en trouvant une réponse en quelques clics !<br>
+                        Ils vous suffit simplement de remplire le formulaire ci-contre 
+					</p>
+				</div>
+				<!-- contact form -->
+				<div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
+					<form
+						class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
+						<!-- Name -->
+						<div class="form-group label-floating">
+							<label class="control-label" for="name">Nom</label>
+							<input class="form-control" id="name" type="text" name="name" required data-error="entrée votre nom">
+							<div class="help-block with-errors"></div>
+						</div>
+						<!-- email -->
+						<div class="form-group label-floating">
+							<label class="control-label" for="email">Email</label>
+							<input class="form-control" id="email" type="email" name="email" required data-error="entrée votre Email">
+							<div class="help-block with-errors"></div>
+						</div>
+						<!-- Subject -->
+						<div class="form-group label-floating">
+							<label class="control-label">Sujet</label>
+							<input class="form-control" id="msg_subject" type="text" name="objet" required data-error="entrée l'objet de votre message s'il vous plait">
+							<div class="help-block with-errors"></div>
+						</div>
+						<!-- Message -->
+						<div class="form-group label-floating">
+							<label for="message" class="control-label">Message</label>
+							<textarea class="form-control" rows="3" id="message" name="message" required data-error="écrire votre message"></textarea>
+							<div class="help-block with-errors"></div>
+						</div>
+						<!-- Form Submit -->
+						<div class="form-submit mt-5">
+							<button class="btn btn-common" type="submit" id="form-submit">
+								envoiyer Message</button>
+							<div id="msgSubmit" class="h3 text-center hidden"></div>
+							<div class="clearfix"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
