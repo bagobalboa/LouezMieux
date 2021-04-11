@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil
+{% block title %}Accueil | LouezMieux.
 {% endblock %}
 
 {% block css %}
@@ -9,52 +9,86 @@
 	<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 {% endblock %}
 
-{% block body %}
-	
-	<div class="container">
-		<h1>Annonces les plus récente</h1>
-		<div class="card-group mb-5">
-			<div class="card">
-				<div class="card-body">
-					<img src="">
-				</div>
-				<div class="card-footer">description</div>
-			</div>
-			<div class="card">
-				<div class="card-body">
-					<img src="">
-				</div>
-				<div class="card-footer">description</div>
-			</div>
-			<div class="card">
-				<div class="card-body">
-					<img src="">
-				</div>
-				<div class="card-footer">description</div>
-			</div>
+{% block content %}
+	<main>
+		<div class="photoFond">
+
+			<img src="../logo/furniture-998265_1920.jpeg">
 		</div>
 
-		<div class="card-group mb-5">
-			<div class="card">
-				<div class="card-body">
-					<img src="">
+		<h1>Annonces les plus récentes</h1>
+
+		<section class="annonces">
+			<div class="container1">
+
+				<div class="card">
+
+					<img class="image" src="../logo/bathroom-3563272_1920.jpeg" alt="photo de logement">
+
 				</div>
-				<div class="card-footer">description</div>
-			</div>
-			<div class="card">
-				<div class="card-body">
-					<img src="">
+				<div class="card">
+
+					<img class="image" src="../logo/bedroom-1940168_1920.jpeg" alt="photo de logement">
+
 				</div>
-				<div class="card-footer">description</div>
-			</div>
-			<div class="card">
-				<div class="card-body">
-					<img src="">
+				<div class="card">
+
+					<img class="image" src="../logo\home-2486092_1920.jpeg" alt="photo de logement">
+
 				</div>
-				<div class="card-footer">description</div>
+
 			</div>
-		</div>
+			<div class="container2">
+
+				<div class="card">
+
+					<img class="image" src="../logo\kitchen-living-room-4043091_1920.jpeg" alt="photo de logement">
+
+				</div>
+				<div class="card">
+
+					<img class="image" src="../logo\living-room-1523480_1920.jpeg" alt="photo de logement">
+
+				</div>
+				<div class="card">
+
+					<img class="image" src="../logo\vecteezy_interior-of-a-bathroom-with-a-sea-view-in-3d-rendering_2074164.jpg" alt="photo de logement">
+
+				</div>
+
+			</div>
+		</section>
+		<section class="valeurs">
+			<h2>Nos valeurs</h2>
+			<div class="container3">
+
+				<div class="nosValeurs">
+					<h3>Confiance</h3>
+					<p>A claram externi fertilitate duae ipso et tanta instructam nullius mari templo navem indigenis fundamento inter urbes a tanta autem faciunt carinae insignis instructam tanta crebra aedificet et onerariam indigenis.
+					</p>
+
+				</div>
+				<div class="nosValeurs">
+					<h3>Confiance</h3>
+					<p>A claram externi fertilitate duae ipso et tanta instructam nullius mari templo navem indigenis fundamento inter urbes a tanta autem faciunt carinae insignis instructam tanta crebra aedificet et onerariam indigenis.
+					</p>
+
+				</div>
+				<div class="nosValeurs">
+					<h3>Confiance</h3>
+					<p>A claram externi fertilitate duae ipso et tanta instructam nullius mari templo navem indigenis fundamento inter urbes a tanta autem faciunt carinae insignis instructam tanta crebra aedificet et onerariam indigenis.
+					</p>
 
 
+				</div>
 
-	{% endblock %}
+			</div>
+
+		</section>
+
+	</main>
+	<button class="scrollToTopBtn">TOP</button>
+{% endblock %}
+{% block js %}
+	<script src="{{ asset('js/listing-posting.js') }}"></script>
+{% endblock %}

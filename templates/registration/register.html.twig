@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} S'inscrire {% endblock %}
+{% block title %}
+	S'inscrire | Louez Mieux.
+{% endblock %}
 
 
 {% block css %}
@@ -10,21 +12,22 @@
 {% endblock %}
 
 {% block content %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
 
-    <main class="w-100 d-flex flex-column justify-content-start align-items-center center-block text-center">
-        <div  id="formulaire" class="form-group col-md-4 d center-block text-center">
-          <img class="icone" src="./icone/icon.svg">
-          <h1 class="my-5"> S'inscrire </h1>
-            {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.email) }}
-                {{ form_row(registrationForm.password) }}
-                {{ form_row(registrationForm.roles) }}
-                {{ form_row(registrationForm.agreeTerms) }}
-                {{ form_row(registrationForm.submit) }}
-            {{ form_end(registrationForm) }}
-            <div>
-        </main>
-{% endblock %}
+	<main class="w-100 d-flex flex-column justify-content-start align-items-center center-block text-center">
+		<h1 class="my-5">
+			S'inscrire
+		</h1>
+		<div id="formulaire" class="form-group col-md-4 d center-block text-center">
+			<img class="icone" src="./icone/icon.svg">
+			{{ form_start(registrationForm) }}
+			{{ form_row(registrationForm.email) }}
+			{{ form_row(registrationForm.password) }}
+			{{ form_row(registrationForm.roles) }}
+			{{ form_row(registrationForm.agreeTerms) }}
+			{{ form_row(registrationForm.submit) }}
+			{{ form_end(registrationForm) }}
+			<div></main>
+		{% endblock %}

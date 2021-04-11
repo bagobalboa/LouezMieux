@@ -20,7 +20,18 @@ h1{
     color:white;
     text-align: center;
 }
+.form-submit{
+    width: 200px;
+    color: black;
+    font-weight: bold;
+    background-color: #c4c4c4;
+    border-radius: 10px;
 
+}
+.form-photo{
+    color: black;
+   
+}
 /* .form-adresse{
   margin-left: 80px;
  
@@ -86,16 +97,5 @@ h1{
     margin-left: 25px;
    
 }
-.form-photo{
-    margin-left: 130px;
-   
-}
-.form-submit{
-    width: 200px;
-    color: white;
-    margin-top: 20px;
-    margin-left: 130px;
-    background-color: #013376;
-    border-radius: 10px;
-    border-color: black;
-} */
+
+ */

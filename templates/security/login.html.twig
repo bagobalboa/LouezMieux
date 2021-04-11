@@ -1,22 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!
+{% block title %}Se connecter | Louez Mieux.
 {% endblock %}
 
 {% block css %}
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 {% endblock %}
 
 {% block content %}
-<<<<<<< HEAD
 	<main class="w-100 d-flex flex-column justify-content-start align-items-center center-block text-center">
 		<h1 class="my-5">
 			Se connecter
 		</h1>
 
-		<form method="post">
+		<form class="formulaire" method="post">
 			{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
@@ -28,14 +27,14 @@
 					<a href="{{ path('app_logout') }}">Se déconnecter</a>
 				</div>
 			{% endif %}
-
+			<img class="icone" src="./icone/icon.svg">
 			<h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
 
 			<label for="inputEmail">Email</label>
 			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
 			<label for="inputPassword">Password</label>
 			<input type="password" name="password" id="inputPassword" class="form-control" required>
-			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
 
 			<button class="btn btn-lg btn-primary" type="submit">
 				Se connecter
@@ -44,35 +43,3 @@
 	</main>
 
 {% endblock %}
-=======
-<main class="w-100 d-flex flex-column justify-content-start align-items-center center-block text-center">
-    <h1 class="my-5"> Se connecter </h1>
-
-    <form  class="formulaire" method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-        
-        {% if app.user %}
-            <div class="mb-3">
-                Vous êtes enregistré avec l'adresse mail {{ app.user.email }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-            </div>
-        {% endif %}
-        <img class="icone" src="./icone/icon.svg">
-        <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
-
-        <label for="inputEmail">Email</label>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-        <label for="inputPassword">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" required>
-        <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"><br>
-
-        <button class="btn btn-lg btn-primary" type="submit">
-            Se connecter
-        </button>
-    </form>
-</main>
-
-{% endblock %}
->>>>>>> e47bbb7d1cc35d0289b258eddcfc0f2f6905f3fc

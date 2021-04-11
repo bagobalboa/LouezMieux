@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Toutes les annonces
+{% block title %}Nos annonces | LouezMieux.
 {% endblock %}
 
 {% block css %}
@@ -34,7 +34,7 @@
 
 
 				<div class="card">
-					<img class="image" src="{{ asset('img/postings/' ~ p.photo1) }}" alt="">
+					<img class="image" src="{{ asset('img/postings/' ~ p.photo1) }}" alt="photo de logement">
 					<div class="card-body">
 
 						<h2 class="card-title">{{p.adresse}}</h2>
