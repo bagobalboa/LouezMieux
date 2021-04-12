@@ -54,7 +54,7 @@ main{
 .nosValeurs{
     border: black solid 1px;
     border-radius: 10px;
-    height: 300px;
+    height: 500px;
     width: 200px;
     background: linear-gradient(to top, #c4c4c4, white);
 }
